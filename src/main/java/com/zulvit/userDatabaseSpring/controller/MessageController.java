@@ -1,24 +1,22 @@
 package com.zulvit.userDatabaseSpring.controller;
 
 import com.zulvit.userDatabaseSpring.model.Message;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
 @RestController
-@RequestMapping("message")
+@RequestMapping("/message")
 public class MessageController {
-    private List<Message> messages = new ArrayList();
+    private final List<Message> messages = new ArrayList<>();
 
     @GetMapping
     public String list() {
-        messages.addAll(List.of(
-                new Message(0, "Привет"),
-                new Message(1, "Да, здарова!")
-        ));
+//        Initialize
+//        messages.addAll(List.of(
+//                new Message(0, "Привет"),
+//                new Message(1, "Да, здарова!")
+//        ));
         return messages.toString();
     }
 
@@ -30,5 +28,20 @@ public class MessageController {
             }
         }
         return Optional.empty();
+    }
+
+    @PostMapping("/add")
+    Message postMessage(@RequestBody Message message) {
+        this.messages.add(message);
+        return message;
+    }
+
+    @DeleteMapping("{id}")
+    void deleteMessage(@PathVariable int id) {
+        for (int i = 0; i < messages.size(); i++) {
+            if (this.messages.get(i).getId() == id) {
+                messages.remove(id);
+            }
+        }
     }
 }
