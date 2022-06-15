@@ -1,12 +1,22 @@
 package com.zulvit.userDatabaseSpring.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Message {
-    private final int id;
+    @Id
+    @SequenceGenerator(name = "message=sequence", sequenceName = "message=sequence")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String message;
 
     public Message(int id, String message) {
         this.id = id;
         this.message = message;
+    }
+
+    public Message() {
+
     }
 
     public int getId() {
@@ -19,13 +29,5 @@ public class Message {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    @Override
-    public String toString() {
-        return "Message{" +
-                "id=" + id +
-                ", message='" + message + '\'' +
-                '}';
     }
 }
