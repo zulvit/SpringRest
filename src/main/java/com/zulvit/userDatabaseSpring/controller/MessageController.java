@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping()
+@RequestMapping("/message")
 public class MessageController {
     private final MessageService messageService;
 
@@ -15,22 +15,22 @@ public class MessageController {
         this.messageService = message;
     }
 
-    @GetMapping("/messages")
+    @GetMapping("")
     public List<Message> list() {
         return messageService.list();
     }
 
-    @GetMapping("messages/{id}")
+    @GetMapping("{id}")
     public Optional<String> getFirst(@PathVariable int id) {
         return messageService.getMessageId(id);
     }
 
-    @PostMapping("message/add")
-    Message postMessage(@RequestBody Message message) {
-        return messageService.postMessage(message);
+    @PostMapping("add")
+    public void postMessage(@RequestBody Message message) {
+        messageService.postMessage(message);
     }
 
-    @DeleteMapping("message/delete/{id}")
+    @DeleteMapping("delete/{id}")
     void deleteMessage(@PathVariable int id) {
         messageService.deleteMessage(id);
     }

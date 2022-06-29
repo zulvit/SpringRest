@@ -1,8 +1,6 @@
 package com.zulvit.userDatabaseSpring.service;
 
 import com.zulvit.userDatabaseSpring.model.Message;
-import com.zulvit.userDatabaseSpring.repo.MessageRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,14 +10,9 @@ import java.util.Optional;
 @Service
 public class MessageService {
     private final List<Message> messages = new ArrayList<>();
-    private final MessageRepository messageRepository;
-
-    public MessageService(MessageRepository messageRepository) {
-        this.messageRepository = messageRepository;
-    }
 
     public List<Message> list() {
-        return (List<Message>) messageRepository.findAll();
+        return messages;
     }
 
     public Optional<String> getMessageId(int id) {
@@ -31,14 +24,14 @@ public class MessageService {
         return Optional.empty();
     }
 
-    public Message postMessage(Message message) {
-        return messageRepository.save(message);
+    public void postMessage(Message message) {
+        this.messages.add(message);
     }
 
     public void deleteMessage(int id) {
         for (int i = 0; i < messages.size(); i++) {
             if (this.messages.get(i).getId() == id) {
-                messages.remove(id);
+                messages.remove(id - 1);
             }
         }
     }
