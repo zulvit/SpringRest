@@ -4,7 +4,8 @@ import com.zulvit.userDatabaseSpring.model.Message;
 import com.zulvit.userDatabaseSpring.service.MessageService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/message")

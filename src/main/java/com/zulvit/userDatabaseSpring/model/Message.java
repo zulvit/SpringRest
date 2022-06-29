@@ -1,15 +1,18 @@
 package com.zulvit.userDatabaseSpring.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Message {
-    private final int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String message;
 
-    public Message(int id, String message) {
-        this.id = id;
-        this.message = message;
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
