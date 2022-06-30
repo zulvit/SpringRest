@@ -6,26 +6,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Message {
+public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String message;
+    private String note;
 
     public long getId() {
         return id;
     }
 
-    public String getMessage() {
-        return message;
+    public String getNote() {
+        return note;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setNote(String message) {
+        this.note = message;
     }
 
     @Override
     public String toString() {
-        return "\n\t\"message\":" + message + "\n\t\"id:\":" + id;
+        return "{\n\t\"id:\": " + id + "," +
+                "\n\t\"note\" : " + note + "}";
     }
 }
