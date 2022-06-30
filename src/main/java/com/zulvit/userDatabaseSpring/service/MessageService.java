@@ -1,6 +1,8 @@
 package com.zulvit.userDatabaseSpring.service;
 
 import com.zulvit.userDatabaseSpring.database.MessageRepository;
+import com.zulvit.userDatabaseSpring.exception.MessageNotFoundException;
+import com.zulvit.userDatabaseSpring.exception.MessagesVoidException;
 import com.zulvit.userDatabaseSpring.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,38 +14,36 @@ import java.util.Optional;
 
 @Service
 public class MessageService {
-    private final List<Message> messages = new ArrayList<>();
-
     //database
     @Autowired
     private MessageRepository messageRepository;
 
-    public List<Message> list() {
-        this.messageRepository.findAll();
-        return messages;
+    public List<Message> list() throws MessagesVoidException {
+        List<Message> list = new ArrayList<>();
+        Iterable<Message> allMessages = this.messageRepository.findAll();
+        allMessages.forEach(list::add);
+        if (!list.isEmpty()) {
+            return list;
+        } else {
+            throw new MessagesVoidException("There are no messages in the database yet");
+        }
     }
 
-    public Optional<String> getMessageId(long id) {
-        this.messageRepository.findAllById(Collections.singleton(id));
-        for (Message message : messages) {
-            if (message.getId() == id) {
-                return Optional.of(message.getMessage());
-            }
+    public Optional<Message> getMessageId(long id) throws MessageNotFoundException {
+        Optional<Message> messageObj = this.messageRepository.findById(id);
+        if (messageObj.isPresent()) {
+            this.messageRepository.findAllById(Collections.singleton(id));
+            return messageObj;
+        } else {
+            throw new MessageNotFoundException("There is no message with this ID.");
         }
-        return Optional.empty();
     }
 
     public void postMessage(Message message) {
         this.messageRepository.save(message);
-        this.messages.add(message);
     }
 
     public void deleteMessage(long id) {
         this.messageRepository.deleteById(id);
-        for (int i = 0; i < messages.size(); i++) {
-            if (this.messages.get(i).getId() == id) {
-                messages.remove(id - 1);
-            }
-        }
     }
 }
