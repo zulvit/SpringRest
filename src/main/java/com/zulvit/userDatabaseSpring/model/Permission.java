@@ -1,7 +1,8 @@
 package com.zulvit.userDatabaseSpring.model;
 
 public enum Permission {
-    ADMIN_MAKE_LIST("admin:read"),
+    ADMIN_WRITE_LIST("admin:write"),
+    ADMIN_WATCH_LIST("admin:read"),
     SELLER_ORDER_READ("seller:read"),
     SELLER_ORDER_WRITE("seller:write"),
     /*SK - STORE KEEPER*/

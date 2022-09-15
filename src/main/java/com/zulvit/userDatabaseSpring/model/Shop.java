@@ -14,7 +14,6 @@ public class Shop {
 //    @OneToMany
 //    private Product product;
     private Double costPrice;
-    private String name;
     private Double weight;
     private int count;
 }

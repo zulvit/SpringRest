@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public enum Role {
-    ADMIN(Set.of(Permission.ADMIN_MAKE_LIST)),
+    ADMIN(Set.of(Permission.ADMIN_WRITE_LIST, Permission.ADMIN_WATCH_LIST)),
     SELLER(Set.of(Permission.SELLER_ORDER_WRITE, Permission.SELLER_ORDER_READ)),
     STORE_KEEPER(Set.of(Permission.SK_WRITE, Permission.SK_READ));
 

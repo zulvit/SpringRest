@@ -16,4 +16,6 @@ public class User {
     private String lastName;
     @Enumerated(value = EnumType.STRING)
     private Role role;
+    @Enumerated(value = EnumType.STRING)
+    private Status status;
 }
