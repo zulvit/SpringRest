@@ -1,8 +1,10 @@
 package com.zulvit.userDatabaseSpring.security;
 
+import com.zulvit.userDatabaseSpring.database.UserRepository;
 import com.zulvit.userDatabaseSpring.model.Status;
 import com.zulvit.userDatabaseSpring.model.User;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +17,8 @@ public class SecurityUser implements UserDetails{
     private final String password;
     private final List<SimpleGrantedAuthority> authorities;
     private final boolean isActive;
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
 
     public SecurityUser(String username, String password, List<SimpleGrantedAuthority> authorities, boolean isActive) {
         this.username = username;

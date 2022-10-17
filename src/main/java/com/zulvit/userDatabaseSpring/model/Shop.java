@@ -10,10 +10,7 @@ public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String productName;
-//    @OneToMany
-//    private Product product;
-    private Double costPrice;
-    private Double weight;
+    private String name;
     private int count;
+    private int price;
 }

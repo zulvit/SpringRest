@@ -9,10 +9,10 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Storage {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String productName;
     private int count;
 }

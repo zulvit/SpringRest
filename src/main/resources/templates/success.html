@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Success</title>
 </head>
 <body>
-!!!
-<form action="/auth/logout" method="POST">
+<form action="/api/v1/auth/logout" method="POST">
     <button type="submit">Logout</button>
 </form>
+<div sec:authorize="hasAuthority('admin:read')">
+    Hello, admin!
+    <form method="get" action="/admin">
+        <button type="submit">Go to admin page</button>
+    </form>
+</div>
+<div sec:authorize="hasAuthority('seller:read')">Hello, seller!</div>
+<div sec:authorize="hasAuthority('store_keeper:read')">
+    Hello, storekeeper!
+</div>
 </body>
 </html>
