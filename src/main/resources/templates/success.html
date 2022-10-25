@@ -17,8 +17,6 @@
     </form>
 </div>
 <div sec:authorize="hasAuthority('seller:read')">Hello, seller!</div>
-<div sec:authorize="hasAuthority('store_keeper:read')">
-    Hello, storekeeper!
-</div>
+<div sec:authorize="hasAuthority('store_keeper:read')">Hello, storekeeper!</div>
 </body>
 </html>
