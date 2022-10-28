@@ -12,6 +12,9 @@
     <h2 th:case="null">No users found</h2>
     <div th:case="*">
         <h2>Users</h2>
+        <div class="user_create">
+            <form action=""
+        </div>
         <table>
             <thead>
             <tr>
@@ -33,12 +36,19 @@
                 <td th:text="${user.lastName}"></td>
                 <td th:text="${user.role}"></td>
                 <td th:text="${user.status}"></td>
-                <td><a th:href="@{list/users/delete/{id}(id=${user.id}}">Delete</a></td>
+                <td><a th:href="@{users/update/{id}(id=${user.id})}">Edit</a></td>
+                <td><a th:href="@{users/delete/{id}(id=${user.id})}">Delete</a></td>
                 <td></td>
             </tr>
             </tbody>
         </table>
     </div>
+</div>
+<div>
+    <form action="localhost:8080/" method="GET">
+        <button type="submit">Logout</button>
+    </form>
+    <a href="/list/users/create">Create new user</a>
 </div>
 </body>
 </html>
