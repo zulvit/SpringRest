@@ -40,17 +40,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/auth/success").authenticated()
                 .antMatchers("/admin/**").hasAnyAuthority(Permission.ADMIN_WRITE_LIST.getPermission(), Permission.ADMIN_WATCH_LIST.getPermission())
                 .antMatchers("/seller/**").hasAnyAuthority(Permission.SELLER_ORDER_WRITE.getPermission(), Permission.SELLER_ORDER_READ.getPermission()
-//                        , Permission.ADMIN_WATCH_LIST.getPermission()
+                        , Permission.ADMIN_WATCH_LIST.getPermission()
                 , Permission.ADMIN_WATCH_LIST.getPermission()
                         )
-                .antMatchers("/storekeeper/**").hasAnyAuthority(Permission.SK_WRITE.getPermission(), Permission.SK_READ.getPermission(), Permission.ADMIN_WRITE_LIST.getPermission())
+                .antMatchers("/store/**").hasAnyAuthority(Permission.SK_WRITE.getPermission(), Permission.SK_READ.getPermission(), Permission.ADMIN_WRITE_LIST.getPermission())
                 .antMatchers(("/list/**")).hasAuthority(Permission.ADMIN_WRITE_LIST.getPermission())
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
-//                .httpBasic()
-//                .and()
                 .formLogin()
                 .loginPage("/api/v1/auth/login")
                 .permitAll()
@@ -64,40 +62,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessUrl("/api/v1/auth/login")
                 ;
-
-                //.antMatchers(HttpMethod.GET,"/api/v1/**").hasAuthority(Permission.ADMIN_MAKE_LIST.getPermission())
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .httpBasic();
     }
 
     @Bean
     protected PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(12);
     }
-//    @Override
-//    @Bean
-//    public AuthenticationManager authenticationManagerBean()throws Exception{
-//        return super.authenticationManagerBean();
-//    }
-//
-//    @Bean
-//    @Override
-//    protected UserDetailsService userDetailsService(){
-//        return new InMemoryUserDetailsManager(
-//                User.builder()
-//                        .username("admin")
-//                        .password(passwordEncoder().encode("admin"))
-//                        .authorities(Role.ADMIN.getAuthorities())
-//                        .build(),
-//                User.builder()
-//                        .username("user")
-//                        .password(passwordEncoder().encode("user"))
-//                        .authorities(Role.SELLER.getAuthorities())
-//                        .build()
-//        );
-//    }
     @Bean
     protected DaoAuthenticationProvider daoAuthenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();

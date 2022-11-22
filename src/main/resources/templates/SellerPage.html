@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style type="text/css">
+        div.activity {
+            display: inline-block;
+            color: black;
+            font-style: inherit;
+            font-size: 35px;
+        }
+        body{
+            text-align: center;
+        }
+    </style>
     <meta charset="UTF-8">
     <title>Seller page</title>
 </head>
 <body>
-<div>Welcome to seller page!!!</div>
+<div class="activity">Welcome to seller page
+
+    <form action="/seller/create-order" method="get" class="button2">
+        <button type="submit">Create new order</button>
+    </form>
+    <form action="/seller/orders" method="get" class="button2">
+        <button type="submit">View all orders</button>
+    </form>
+    <form action="/api/v1/auth/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+</div>
 </body>
 </html>

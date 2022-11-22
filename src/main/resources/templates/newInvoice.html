@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new invoice</title>
+</head>
+<body>
+<form action="post" th:action="@{/seller/orders/new-invoice/{id}(id=${order.id})}" th:object="${invoice}" method="post">
+    <label for="product_id">Product ID</label>
+    <input type="text" th:field="*{product_id}" id="product_id" placeholder="Product ID">
+    <div style="color: red" th:if="${#fields.hasErrors('product_id')}" th:errors="*{product_id}">Product ID error</div>
+    <br/>
+    <label for="price">Price</label>
+    <input type="text" th:field="*{price}" id="price" placeholder="Price">
+    <div style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price error</div>
+    <br/>
+    <label for="amount">Amount ID</label>
+    <input type="text" th:field="*{amount}" id="amount" placeholder="Amount">
+    <div style="color: red" th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">Amount error</div>
+    <br/>
+
+    <input type="submit" value="Create invoice">
+</form>
+</body>
+</html>

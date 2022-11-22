@@ -43,7 +43,7 @@ public class AdminService {
         userToBeUpdated.setLastName(updatedUser.getLastName());
         userToBeUpdated.setRole(updatedUser.getRole());
         userToBeUpdated.setStatus(updatedUser.getStatus());
-        System.out.println("final pass" + userToBeUpdated.getPassword());
+//        System.out.println("final pass" + userToBeUpdated.getPassword());
         saveUser(updatedUser);
     }
 }

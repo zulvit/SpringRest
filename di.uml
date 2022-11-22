@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>D:/SpringRest</OriginalElement>
+  <nodes>
+    <node x="294.0" y="1856.0">com.zulvit.userDatabaseSpring.exception.CustomerVoidException</node>
+    <node x="1048.0" y="1533.0">com.zulvit.userDatabaseSpring.UserDatabaseSpringApplicationTests</node>
+    <node x="731.0" y="0.0">com.zulvit.userDatabaseSpring.model.Customer</node>
+    <node x="185.0" y="328.0">com.zulvit.userDatabaseSpring.model.Role</node>
+    <node x="959.0" y="0.0">com.zulvit.userDatabaseSpring.model.Shop</node>
+    <node x="525.0" y="112.5">com.zulvit.userDatabaseSpring.database.CustomerRepository</node>
+    <node x="0.0" y="1533.0">com.zulvit.userDatabaseSpring.security.AuthenticationRequestDTO</node>
+    <node x="1699.0" y="1533.0">com.zulvit.userDatabaseSpring.controller.UserController</node>
+    <node x="669.0" y="1533.0">com.zulvit.userDatabaseSpring.controller.AuthenticationController</node>
+    <node x="780.0" y="1856.0">com.zulvit.userDatabaseSpring.database.ShopProductList</node>
+    <node x="1207.0" y="0.0">com.zulvit.userDatabaseSpring.model.Product</node>
+    <node x="237.0" y="0.0">com.zulvit.userDatabaseSpring.model.Permission</node>
+    <node x="558.0" y="1856.0">com.zulvit.userDatabaseSpring.database.StorageProductList</node>
+    <node x="130.75" y="622.0">com.zulvit.userDatabaseSpring.model.User</node>
+    <node x="104.25" y="1280.0">com.zulvit.userDatabaseSpring.database.UserRepository</node>
+    <node x="93.25" y="1386.0">com.zulvit.userDatabaseSpring.security.UserDetailsServiceImpl</node>
+    <node x="0.0" y="372.0">com.zulvit.userDatabaseSpring.model.Status</node>
+    <node x="277.0" y="1533.0">com.zulvit.userDatabaseSpring.config.SecurityConfig</node>
+    <node x="0.0" y="1856.0">com.zulvit.userDatabaseSpring.exception.CustomerNotFoundException</node>
+    <node x="540.0" y="524.0">com.zulvit.userDatabaseSpring.controller.CustomerController</node>
+    <node x="564.0" y="306.0">com.zulvit.userDatabaseSpring.service.CustomerService</node>
+    <node x="1438.0" y="0.0">com.zulvit.userDatabaseSpring.model.Storage</node>
+    <node x="1669.0" y="0.0">com.zulvit.userDatabaseSpring.security.SecurityUser</node>
+    <node x="1390.0" y="1533.0">com.zulvit.userDatabaseSpring.UserDatabaseSpringApplication</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.zulvit.userDatabaseSpring.service.CustomerService" target="com.zulvit.userDatabaseSpring.database.CustomerRepository" relationship="DEPENDENCY">
+      <point x="66.5" y="-84.0" />
+      <point x="763.5" y="286.0" />
+      <point x="702.0" y="286.0" />
+      <point x="702.0" y="276.0" />
+      <point x="664.5" y="276.0" />
+      <point x="46.5" y="15.5" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.controller.CustomerController" target="com.zulvit.userDatabaseSpring.service.CustomerService" relationship="DEPENDENCY">
+      <point x="-78.5" y="-84.0" />
+      <point x="618.5" y="499.0" />
+      <point x="630.5" y="499.0" />
+      <point x="-66.5" y="84.0" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.model.User" target="com.zulvit.userDatabaseSpring.model.Status" relationship="DEPENDENCY">
+      <point x="46.5" y="-304.0" />
+      <point x="270.25" y="602.0" />
+      <point x="337.5" y="602.0" />
+      <point x="337.5" y="582.0" />
+      <point x="123.75" y="582.0" />
+      <point x="41.25" y="73.0" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.model.User" target="com.zulvit.userDatabaseSpring.model.Role" relationship="TO_ONE">
+      <point x="-46.5" y="-304.0" />
+      <point x="177.25" y="602.0" />
+      <point x="77.5" y="602.0" />
+      <point x="77.5" y="592.0" />
+      <point x="258.75" y="592.0" />
+      <point x="-73.75" y="117.0" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.model.Role" target="com.zulvit.userDatabaseSpring.model.Permission" relationship="TO_MANY">
+      <point x="-73.75" y="-117.0" />
+      <point x="258.75" y="303.0" />
+      <point x="284.75" y="303.0" />
+      <point x="-47.75" y="139.0" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.model.User" target="com.zulvit.userDatabaseSpring.model.Role" relationship="DEPENDENCY">
+      <point x="46.5" y="-304.0" />
+      <point x="270.25" y="602.0" />
+      <point x="337.5" y="602.0" />
+      <point x="337.5" y="582.0" />
+      <point x="406.25" y="582.0" />
+      <point x="73.75" y="117.0" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.service.CustomerService" target="com.zulvit.userDatabaseSpring.model.Customer" relationship="DEPENDENCY">
+      <point x="66.5" y="-84.0" />
+      <point x="763.5" y="286.0" />
+      <point x="702.0" y="286.0" />
+      <point x="702.0" y="276.0" />
+      <point x="822.5" y="276.0" />
+      <point x="0.0" y="128.0" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.model.Role" target="com.zulvit.userDatabaseSpring.model.Permission" relationship="DEPENDENCY">
+      <point x="73.75" y="-117.0" />
+      <point x="406.25" y="303.0" />
+      <point x="380.25" y="303.0" />
+      <point x="47.75" y="139.0" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.security.UserDetailsServiceImpl" target="com.zulvit.userDatabaseSpring.database.UserRepository" relationship="DEPENDENCY">
+      <point x="65.25" y="-51.0" />
+      <point x="289.0" y="1361.0" />
+      <point x="283.5" y="1361.0" />
+      <point x="59.75" y="28.0" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.service.CustomerService" target="com.zulvit.userDatabaseSpring.database.CustomerRepository" relationship="TO_ONE">
+      <point x="-66.5" y="-84.0" />
+      <point x="630.5" y="286.0" />
+      <point x="571.5" y="286.0" />
+      <point x="-46.5" y="15.5" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.model.User" target="com.zulvit.userDatabaseSpring.model.Status" relationship="TO_ONE">
+      <point x="-46.5" y="-304.0" />
+      <point x="177.25" y="602.0" />
+      <point x="77.5" y="602.0" />
+      <point x="77.5" y="592.0" />
+      <point x="41.25" y="592.0" />
+      <point x="-41.25" y="73.0" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.security.UserDetailsServiceImpl" target="com.zulvit.userDatabaseSpring.database.UserRepository" relationship="TO_ONE">
+      <point x="-65.25" y="-51.0" />
+      <point x="158.5" y="1361.0" />
+      <point x="164.0" y="1361.0" />
+      <point x="-59.75" y="28.0" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.database.UserRepository" target="com.zulvit.userDatabaseSpring.model.User" relationship="DEPENDENCY">
+      <point x="0.0" y="-28.0" />
+      <point x="0.0" y="304.0" />
+    </edge>
+    <edge source="com.zulvit.userDatabaseSpring.controller.CustomerController" target="com.zulvit.userDatabaseSpring.service.CustomerService" relationship="TO_ONE">
+      <point x="78.5" y="-84.0" />
+      <point x="775.5" y="499.0" />
+      <point x="763.5" y="499.0" />
+      <point x="66.5" y="84.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.474120082815735" showDependencies="true" x="1039.5" y="956.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

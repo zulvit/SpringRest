@@ -3,6 +3,11 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -24,8 +29,8 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
 </div>
-<div sec:authorize="hasRole('ROLE_ADMIN')">Hello, admin!</div>
-<div sec:authorize="hasRole('ROLE_SELLER')">Hello, seller!</div>
-<div sec:authorize="hasRole('ROLE_STORE_KEEPER')">Hello, storekeeper!</div>
+<!--<div sec:authorize="hasRole('ROLE_ADMIN')">Hello, admin!</div>-->
+<!--<div sec:authorize="hasRole('ROLE_SELLER')">Hello, seller!</div>-->
+<!--<div sec:authorize="hasRole('ROLE_STORE_KEEPER')">Hello, storekeeper!</div>-->
 </body>
 </html>

@@ -3,13 +3,42 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
+    <style type="text/css">
+        div.activity {
+            display: inline-block;
+            color: black;
+            font-style: inherit;
+            font-size: 35px;
+            text-align: center;
+        }
+        body{
+            text-align: center;
+        }
+        div{
+            min-height: 100%;
+        }
+    </style>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Admin page</title>
 </head>
 <body>
-Create a new user list
-<form action="/list/users" method="get">
-    <button type="submit">List page</button>
-</form>
+<div class="activity">
+    Choose action
+    <form action="/list/users" method="get" class="button1">
+        <button type="submit">User list</button>
+    </form>
+    <form action="/list/products" method="get" class="button1">
+        <button type="submit">Product list</button>
+    </form>
+    <form action="/seller" method="get" class="button1">
+        <button type="submit">Seller page</button>
+    </form>
+    <form action="/store" method="get" class="button1">
+        <button type="submit">Storekeeper page</button>
+    </form>
+    <form action="/api/v1/auth/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+</div>
 </body>
 </html>

@@ -15,8 +15,14 @@ public class UserController {
         return "adminPage";
     }
     @GetMapping("/seller")
+    @PreAuthorize("hasAnyAuthority('seller:read', 'seller:write', 'admin:read')")
     public String getSeller(){
-        return "success";
+        return "SellerPage";
     }
 
+    @GetMapping("/store")
+    @PreAuthorize("hasAnyAuthority('store_keeper:read', 'admin:read')")
+    public String getStore(){
+        return "StorePage";
+    }
 }

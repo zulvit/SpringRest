@@ -2,14 +2,19 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link media="all" rel="stylesheet" th:href="@{/static/css/homePageStyle.css}" type="text/css"/>
+    <!--    <link media="all" rel="stylesheet" th:href="@{/static/css/homePageStyle.css}" type="text/css"/>-->
 </head>
 <body>
 <h1>Добро пожаловать</h1>
 <h1>Войдите в систему, чтобы продолжить</h1>
 
-<input type="button" value="Log in" onClick='location.href="http://localhost:8080/api/v1/auth/login"'>
+<input type="button" value="Войти" onClick='location.href="http://localhost:8080/api/v1/auth/login"'>
 </body>
 </html>
