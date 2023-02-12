@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+</style>
+<body>
+<div class="container">
+    <form class="form-signin" method="post" action="/api/v1/auth/login">
+        <h2 class="form-signin-heading">Login</h2>
+        <p>
+            <label for="username">Email</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+</div>
+<!--<div sec:authorize="hasRole('ROLE_ADMIN')">Hello, admin!</div>-->
+<!--<div sec:authorize="hasRole('ROLE_SELLER')">Hello, seller!</div>-->
+<!--<div sec:authorize="hasRole('ROLE_STORE_KEEPER')">Hello, storekeeper!</div>-->
+</body>
+</html>

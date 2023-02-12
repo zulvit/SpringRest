@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style type="text/css">
+    div.activity {
+      display: inline-block;
+      color: black;
+      font-style: inherit;
+      font-size: 35px;
+    }
+    body{
+      text-align: center;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <title>Storekeeper page</title>
+</head>
+<body>
+<div class="activity">Welcome to storekeeper page
+
+  <form action="/store/orders" method="get" class="button2">
+    <button type="submit">View all active orders</button>
+  </form>
+  <form action="/api/v1/auth/logout" method="POST">
+    <button type="submit">Logout</button>
+  </form>
+</div>
+</body>
+</html>

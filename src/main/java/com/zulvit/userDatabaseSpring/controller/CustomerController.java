@@ -5,12 +5,13 @@ import com.zulvit.userDatabaseSpring.exception.CustomerVoidException;
 import com.zulvit.userDatabaseSpring.model.Customer;
 import com.zulvit.userDatabaseSpring.service.CustomerService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/api/v1/customers")
 public class CustomerController {
     private final CustomerService customerService;
